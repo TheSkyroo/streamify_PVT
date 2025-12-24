@@ -45,7 +45,7 @@ export async function signup(req, res) {
         expiresIn: "7d",
       }
     );
-  } catch (error) {}
+  } catch (error) { }
 }
 export async function login(req, res) {
   res.send("login Routes");
