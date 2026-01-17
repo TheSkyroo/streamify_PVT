@@ -5,7 +5,7 @@ export async function signup(req, res) {
   const { email, password, fullName } = req.body;
 
   try {
-    if (!email || !password || !fullname) {
+    if (!email || !password || !fullName) {
       return res.status(400).json({ messsage: "all fields are required" });
     }
 
@@ -28,15 +28,44 @@ export async function signup(req, res) {
         .json({ message: "Email already exists please use a diffrent one" });
     }
 
-    const idx = Math.floor(Math.random() * 100) + 1;
-    const randomAvtar = `https://avatar.iran.liara.run/public/${idx}.png`;
+    //avtar start (may change in future) 
 
-    const newUser = new User.create({
+    const avtar = [
+      "Riley",
+      "Jude",
+      "Alexander",
+      "Chase",
+      "Leah",
+      "Adrian",
+      "Christopher",
+      "Caleb",
+      "George",
+      "Kimberly",
+      "Sophia",
+      "Andrea",
+      "Valentina",
+    ];
+
+    function getRandomElement(arr) {
+      if (arr.length === 0) return null; // safety net
+      const randomIndex = Math.floor(Math.random() * arr.length);
+      return arr[randomIndex];
+    }
+
+    const randomAvtar = getRandomElement(avtar);
+
+    const genAvtar = `https://api.dicebear.com/9.x/thumbs/svg?seed=${randomAvtar}`;
+
+    //avtar end
+
+    const newUser = await User.create({
       email,
       fullName,
       password,
-      profilePic: randomAvtar,
+      profilePic: genAvtar,
     });
+
+    //TODO: CREATE The stream as well
 
     const token = jwt.sign(
       { userId: newUser._id },
@@ -44,11 +73,36 @@ export async function signup(req, res) {
       {
         expiresIn: "7d",
       }
-    );
-  } catch (error) { }
+    )
+    res.cookie("jwt",token,{
+      maxAge:7*24*60*60*1000,
+      httpOnly: true,//prevent XSS attack,
+      sameSite:"strict",//prevent CSRF attacks,
+      secure:process.env.NODE_ENV==="production",
+    })
+
+    res.status(201).json({success:true,user:newUser})
+
+
+
+  } catch (error) {
+    console.log("Error in signup controller",error);
+    res.status(500).json({message:"Internal Server Error"});
+  }
 }
 export async function login(req, res) {
-  res.send("login Routes");
+  try{
+    const{email,password}=req.body;
+    if(!email || !password){
+      return res.status(400).json({message:"All fields are required  "});
+
+    }
+    
+
+  }
+  catch(error){
+
+  }
 }
 export function logout(req, res) {
   res.send("logout Routes");
