@@ -65,6 +65,7 @@ export async function signup(req, res) {
       password,
       profilePic: genAvtar,
     });
+    
     try {
       await upsertStreamUser({
         id: newUser._id.toString(),
