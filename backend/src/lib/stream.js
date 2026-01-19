@@ -19,4 +19,4 @@ export const upsertStreamUser = async (userData) => {
   }
 };
 
-export const generateStreamToken = (userId) => {};
+export const generateStreamToken = (userId) => { };
