@@ -65,7 +65,7 @@ export async function signup(req, res) {
       password,
       profilePic: genAvtar,
     });
-    
+
     try {
       await upsertStreamUser({
         id: newUser._id.toString(),
@@ -130,37 +130,44 @@ export function logout(req, res) {
   res.status(200).json({ success: true, message: "logout successful" });
 }
 
-export async function  onboard(req,res) {
-  try{
-    const userId=req.user._id;
-    const {fullName,bio,nativeLanguage,learningLanguage,location}=req.body;
-    if(!fullName|| !bio|| !nativeLanguage|| !learningLanguage|| !location){
+export async function onboard(req, res) {
+  try {
+    const userId = req.user._id;
+    const { fullName, bio, nativeLanguage, learningLanguage, location } =
+      req.body;
+    if (
+      !fullName ||
+      !bio ||
+      !nativeLanguage ||
+      !learningLanguage ||
+      !location
+    ) {
       return res.status(400).json({
-        message:"All fields are required",
-        missingFields:[
+        message: "All fields are required",
+        missingFields: [
           !fullName && "fullName",
           !bio && "bio",
           !nativeLanguage && "nativeLanguage",
           !learningLanguage && "learningLanguage",
           !location && "location",
         ].filter(Boolean),
-      })
+      });
     }
 
-    const updatedUser=await User.findByIdAndUpdate(userId,{
-      ...req.body,
-      isOnboarded:true,
+    const updatedUser = await User.findByIdAndUpdate(
+      userId,
+      {
+        ...req.body,
+        isOnboarded: true,
+      },
+      { new: true },
+    );
+    if (!updatedUser)
+      return res.status(404).json({ message: "user not found" });
 
-    },{new:true})
-    if(!updatedUser) return res.status(404).json({message:"user not found"})
-
-
-    res.status(200).json({success: true,user:updatedUser});
-  }catch(error){
-    console.error("Onboarding error",error);
-    res.status(500).json({messege:"Internal Server Error"})
-
+    res.status(200).json({ success: true, user: updatedUser });
+  } catch (error) {
+    console.error("Onboarding error", error);
+    res.status(500).json({ messege: "Internal Server Error" });
   }
-
-  
 }
