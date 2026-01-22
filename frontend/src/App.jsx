@@ -1,6 +1,6 @@
 const App = () => {
   return (
-    <div className="bg-red-500 h-screen text-5xl" data-theme="forest">
+    <div className=" h-screen text-5xl" data-theme="night">
       <button className="btn">Button</button>
       <button className="btn btn-neutral">Neutral</button>
       <button className="btn btn-primary">Primary</button>
