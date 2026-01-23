@@ -7,6 +7,7 @@ import NotificationPage from "./pages/NotificationPage";
 import CallPage from "./pages/CallPage";
 import ChatPage from "./pages/ChatPage";
 import { Toaster } from "react-hot-toast";
+
 const App = () => {
   return (
     <div className=" h-screen" data-theme="night">
