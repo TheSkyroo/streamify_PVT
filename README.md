@@ -1,4 +1,4 @@
-# Streamify Backend
+# Streamify
 
 The backend development has been completed, and work is now progressing on the frontend.
 This backend powers the Streamify application and is built using Express.js, Mongoose, and Stream Chat, providing a scalable and reliable foundation for the platform.
