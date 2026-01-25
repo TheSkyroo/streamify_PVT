@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from "react-router";
+import { Routes, Route, Navigate } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import SignUpPage from "./pages/SignUpPage";
 import LoginPage from "./pages/LoginPage";
@@ -26,7 +26,7 @@ const App = () => {
   });
   const authUser = authData?.user;
 
-  if (isLoading) return null;
+  // if (isLoading) return "Loading..."; (to add loading screen)
 
   return (
     <div className=" h-screen" data-theme="dark">
