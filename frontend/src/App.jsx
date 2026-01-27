@@ -72,7 +72,7 @@ const App = () => {
           }
         />
         <Route
-          path="/notification"
+          path="/notifications"
           element={
             isAuthanticated ? <NotificationPage /> : <Navigate to="/login" />
           }
