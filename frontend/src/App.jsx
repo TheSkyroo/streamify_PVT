@@ -9,7 +9,7 @@ import ChatPage from "./pages/ChatPage";
 import { Toaster } from "react-hot-toast";
 import PageLoader from "./components/PageLoader";
 import useAuthUser from "../hooks/useAuthUser";
-
+import Layout from "./components/Layout.jsx";
 const App = () => {
   //tanstack query
   const { isLoading, authUser } = useAuthUser();
@@ -26,7 +26,9 @@ const App = () => {
           path="/"
           element={
             isAuthanticated && isOnboarded ? (
-              <HomePage />
+              <Layout showSidebar={true}>
+                <HomePage />
+              </Layout>
             ) : (
               <Navigate to={!isAuthanticated ? "/login" : "/onboarding"} />
             )
@@ -34,11 +36,23 @@ const App = () => {
         />
         <Route
           path="/signup"
-          element={!isAuthanticated ? <SignUpPage /> : <Navigate to="/" />}
+          element={
+            !isAuthanticated ? (
+              <SignUpPage />
+            ) : (
+              <Navigate to={isOnboarded ? "/" : "/onboarding"} />
+            )
+          }
         />
         <Route
           path="/login"
-          element={!isAuthanticated ? <LoginPage /> : <Navigate to="/" />}
+          element={
+            !isAuthanticated ? (
+              <LoginPage />
+            ) : (
+              <Navigate to={isOnboarded ? "/" : "/onboarding"} />
+            )
+          }
         />
         <Route
           path="/onboarding"
