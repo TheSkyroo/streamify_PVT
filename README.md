@@ -10,7 +10,7 @@ This root `README.md` provides a high-level overview of the project structure an
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```text
 Streamify/
