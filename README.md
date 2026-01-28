@@ -1,77 +1,61 @@
-# Streamify
+```md
+# Streamify 
 
-The backend development has been completed, and work is now progressing on the frontend.
-This backend powers the Streamify application and is built using Express.js, Mongoose, and Stream Chat, providing a scalable and reliable foundation for the platform.
+Streamify is a full-stack application with the **backend and frontend maintained in separate folders** to ensure clean architecture, scalability, and ease of maintenance.
 
-### Prerequisites
+-  **Backend**: Completed and fully functional  
+-  **Frontend**: Under active development  
 
-- Node.js (v16+ recommended)
-- MongoDB
-- Stream Chat Account
+Each folder includes its **own dedicated `README.md`** with setup and usage instructions.  
+This root `README.md` provides a high-level overview of the project structure and workflow.
 
-### Installation
+---
 
-1.  Navigate to the backend directory:
+##  Project Structure
 
-    ```bash
-    cd backend
-    ```
-
-2.  Install dependencies:
-
-    ```bash
-    npm install
-    ```
-
-3.  Set up environment variables:
-    Create a `.env` file in the root of the `backend` folder and add the following keys:
-
-    ```env
-    PORT=5001
-    MONGO_URI=your_mongodb_connection_string
-    JWT_SECRET_KEY=your_jwt_secret_key
-
-    # Stream Chat Configuration
-    # Note: These exact variable names are required by the current implementation
-    STEAM_API_key=your_stream_api_key
-    STEAM_API_SECRET=your_stream_api_secret
-    ```
-
-    3.  Set up environment variables:
-        Create a `.env` file in the root of the `backend` folder and add the following keys:
-
-    ```env
-    PORT=5001
-    MONGO_URI=your_mongodb_connection_string
-    JWT_SECRET_KEY=your_jwt_secret_key
-
-    # Stream Chat Configuration
-    # Note: These exact variable names are required by the current implementation
-    STEAM_API_key=your_stream_api_key
-    STEAM_API_SECRET=your_stream_api_secret
-    ```
-
-    Create a `.env` file in the root of the `frontend` folder and add the following keys:
-
-    ```env
-    VITE_STREAM_API_KEY=your_stream_api_key
-
-    ```
-
-### Running the Server
-
-To start the server in development mode (with hot-reloading via nodemon):
-
-```bash
-npm run dev
 ```
 
-The server will typically run on `http://localhost:5001`.
+Streamify/
+│
+├── backend/        # Express.js API, database, authentication, chat logic
+│   └── README.md   # Backend-specific documentation
+│
+├── frontend/       # Client-side application
+│   └── README.md   # Frontend-specific documentation
+│
+└── README.md       # Root project overview
 
-### Tech Stack
+````
 
-- **Runtime**: Node.js
-- **Framework**: Express.js
-- **Database**: MongoDB (with Mongoose)
-- **Authentication**: JWT & Cookies
-- **Real-time Chat**: Stream Chat SDK
+---
+
+##  Project Overview
+
+The backend serves as the core of the Streamify application, handling authentication, database operations, and real-time chat features. It is built using modern and scalable technologies.
+
+The frontend is developed separately and consumes backend APIs.  
+This separation allows developers and readers to navigate and understand each part independently.
+
+---
+
+##  Prerequisites
+
+Before running the project, ensure you have the following installed:
+
+- Node.js (v16 or higher recommended)
+- MongoDB
+- Stream Chat account
+
+---
+
+##  Additional Notes
+
+* Each folder (`backend` and `frontend`) has its own `README.md`—please refer to them for detailed instructions.
+* This modular structure makes the project easier to understand, scale, and maintain.
+
+---
+
+Happy coding 
+
+```
+```
