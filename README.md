@@ -8,8 +8,8 @@
 
 **Streamify** is a full-stack application designed with a **clean, modular architecture**, where the backend and frontend are developed and maintained independently. This structure improves scalability, readability, and long-term maintainability.
 
-- ✅ **Backend**: Completed and production-ready  
-- 🚧 **Frontend**: Under active development  
+-  **Backend**: Completed and production-ready  
+-  **Frontend**: Under active maintenance 
 
 Each major component lives in its own folder with a dedicated `README.md`.  
 This root document provides a high-level overview of the project.
@@ -43,21 +43,6 @@ This separation of concerns allows contributors to work on either side without f
 
 ---
 
-## 🧰 Tech Stack
-
-### Backend
-- Node.js
-- Express.js
-- MongoDB
-- Stream Chat API
-- JWT Authentication
-
-### Frontend
-- JavaScript / TypeScript *(in progress)*
-- Modern frontend framework *(to be finalized)*
-
----
-
 ## 🛠 Prerequisites
 
 Make sure you have the following installed before running the project:
@@ -79,4 +64,4 @@ Make sure you have the following installed before running the project:
 ## 📌 Status
 
 - **Backend**: Complete
-- **Frontend**: In Development
+- **Frontend**: Maintenance
