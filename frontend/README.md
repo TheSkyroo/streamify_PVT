@@ -44,7 +44,7 @@ The project uses a modern React tech stack for performance and developer experie
     Create a `.env` file in the root of the `frontend` folder and add the following keys:
 
         ```env
-        STEAM_API_key=your_stream_api_key
+        VITE_STREAM_API_KEY=your_stream_api_key
 
         ```
 
