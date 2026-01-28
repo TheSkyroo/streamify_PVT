@@ -1,55 +1,67 @@
 # Streamify Backend
 
-This is the backend for the Streamify application, built with Express.js, Mongoose, and Stream Chat.
+This is the backend API for Streamify, built with Node.js and Express. It handles user authentication, data management, and integration with Stream SDKs for chat and video features.
 
-### Prerequisites
+## Tech Stack
 
-- Node.js (v16+ recommended)
-- MongoDB
-- Stream Chat Account
+- **Runtime**: [Node.js](https://nodejs.org/)
+- **Framework**: [Express.js](https://expressjs.com/)
+- **Database**: [MongoDB](https://www.mongodb.com/) with [Mongoose](https://mongoosejs.com/)
+- **Authentication**: JWT (JSON Web Tokens)
+- **Real-time & Media**: [Stream Chat SDK](https://getstream.io/chat/docs/node/)
 
-### Installation
+## Prerequisites
 
-1.  Navigate to the backend directory:
+- Node.js
+- MongoDB Instance (Local or Atlas)
+- Stream API Credentials
 
-    ```bash
-    cd backend
-    ```
+## Environment Variables
 
-2.  Install dependencies:
+Create a `.env` file in the `backend` directory with the following variables:
+
+```env
+PORT=5000
+MONGO_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/<dbname>
+JWT_SECRET_KEY=your_super_secret_jwt_key
+NODE_ENV=development
+
+# Stream API Configuration
+# Note: The variable names strictly follow the codebase naming convention.
+STEAM_API_key=your_stream_api_key
+STEAM_API_SECRET=your_stream_api_secret
+```
+
+> [!IMPORTANT]
+> Ensure you use `STEAM_API_key` and `STEAM_API_SECRET` exactly as written (with "STEAM" instead of "STREAM"), as defined in the application configuration.
+
+## Getting Started
+
+1.  **Install dependencies:**
 
     ```bash
     npm install
     ```
 
-3.  Set up environment variables:
-    Create a `.env` file in the root of the `backend` folder and add the following keys:
+2.  **Start the development server:**
 
-    ```env
-    PORT=5001
-    MONGO_URI=your_mongodb_connection_string
-    JWT_SECRET_KEY=your_jwt_secret_key
-
-    # Stream Chat Configuration
-    # Note: These exact variable names are required by the current implementation
-    STEAM_API_key=your_stream_api_key
-    STEAM_API_SECRET=your_stream_api_secret
+    ```bash
+    npm run dev
     ```
 
-### Running the Server
+    The server will start on the port specified in your `.env` file (default: 5000).
 
-To start the server in development mode (with hot-reloading via nodemon):
+## API Routes
 
-```bash
-npm run dev
-```
+- **/api/auth**: Authentication routes (signup, login, logout, check-auth).
+- **/api/users**: User profile management.
+- **/api/chat**: Stream Chat integration endpoints.
 
-The server will typically run on `http://localhost:5001`.
+## Project Structure
 
-### Tech Stack
-
-- **Runtime**: Node.js
-- **Framework**: Express.js
-- **Database**: MongoDB (with Mongoose)
-- **Authentication**: JWT & Cookies
-- **Real-time Chat**: Stream Chat SDK
+- `src/server.js`: Application entry point.
+- `src/controllers`: Request handlers.
+- `src/routes`: API route definitions.
+- `src/models`: Mongoose database models.
+- `src/middleware`: Custom middleware (auth, error handling).
+- `src/lib`: Utility functions and clients (DB connection, Stream client).

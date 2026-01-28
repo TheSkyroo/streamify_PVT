@@ -40,6 +40,14 @@ The project uses a modern React tech stack for performance and developer experie
 
     The application will be available at `http://localhost:5173` (or the port shown in your terminal).
 
+3.  **Set up environment variables:**
+    Create a `.env` file in the root of the `frontend` folder and add the following keys:
+
+        ```env
+        STEAM_API_key=your_stream_api_key
+
+        ```
+
 ## Scripts
 
 - `npm run dev`: Starts the development server.
