@@ -1,77 +1,67 @@
-# Streamify
+# Streamify 🎧💬
 
-The backend development has been completed, and work is now progressing on the frontend.
-This backend powers the Streamify application and is built using Express.js, Mongoose, and Stream Chat, providing a scalable and reliable foundation for the platform.
+![Node.js](https://img.shields.io/badge/Node.js-16%2B-green)
+![MongoDB](https://img.shields.io/badge/MongoDB-Database-brightgreen)
+![Express](https://img.shields.io/badge/Express.js-Backend-lightgrey)
+![Status](https://img.shields.io/badge/Frontend-In%20Progress-yellow)
+![License](https://img.shields.io/badge/License-MIT-blue)
 
-### Prerequisites
+**Streamify** is a full-stack application designed with a **clean, modular architecture**, where the backend and frontend are developed and maintained independently. This structure improves scalability, readability, and long-term maintainability.
 
-- Node.js (v16+ recommended)
-- MongoDB
-- Stream Chat Account
+-  **Backend**: Completed and production-ready  
+-  **Frontend**: Under active maintenance 
 
-### Installation
+Each major component lives in its own folder with a dedicated `README.md`.  
+This root document provides a high-level overview of the project.
 
-1.  Navigate to the backend directory:
+---
 
-    ```bash
-    cd backend
-    ```
+## 📁 Project Structure
 
-2.  Install dependencies:
-
-    ```bash
-    npm install
-    ```
-
-3.  Set up environment variables:
-    Create a `.env` file in the root of the `backend` folder and add the following keys:
-
-    ```env
-    PORT=5001
-    MONGO_URI=your_mongodb_connection_string
-    JWT_SECRET_KEY=your_jwt_secret_key
-
-    # Stream Chat Configuration
-    # Note: These exact variable names are required by the current implementation
-    STEAM_API_key=your_stream_api_key
-    STEAM_API_SECRET=your_stream_api_secret
-    ```
-
-    3.  Set up environment variables:
-        Create a `.env` file in the root of the `backend` folder and add the following keys:
-
-    ```env
-    PORT=5001
-    MONGO_URI=your_mongodb_connection_string
-    JWT_SECRET_KEY=your_jwt_secret_key
-
-    # Stream Chat Configuration
-    # Note: These exact variable names are required by the current implementation
-    STEAM_API_key=your_stream_api_key
-    STEAM_API_SECRET=your_stream_api_secret
-    ```
-
-    Create a `.env` file in the root of the `frontend` folder and add the following keys:
-
-    ```env
-    VITE_STREAM_API_KEY=your_stream_api_key
-
-    ```
-
-### Running the Server
-
-To start the server in development mode (with hot-reloading via nodemon):
-
-```bash
-npm run dev
+```text
+Streamify/
+│
+├── backend/        # Express.js API, database, authentication, chat logic
+│   └── README.md   # Backend-specific documentation
+│
+├── frontend/       # Client-side application
+│   └── README.md   # Frontend-specific documentation
+│
+└── README.md       # Root project overview
 ```
+## 🚀 Project Overview
 
-The server will typically run on `http://localhost:5001`.
+The backend forms the backbone of **Streamify**, handling:
 
-### Tech Stack
+- Authentication and authorization
+- Database operations
+- Real-time chat functionality
+- API endpoints for frontend consumption
 
-- **Runtime**: Node.js
-- **Framework**: Express.js
-- **Database**: MongoDB (with Mongoose)
-- **Authentication**: JWT & Cookies
-- **Real-time Chat**: Stream Chat SDK
+The frontend is developed separately and communicates with the backend via APIs.  
+This separation of concerns allows contributors to work on either side without friction and makes the codebase easier to understand and scale.
+
+---
+
+## 🛠 Prerequisites
+
+Make sure you have the following installed before running the project:
+
+- Node.js (v16 or higher recommended)
+- MongoDB
+- Stream Chat account
+
+---
+
+## 📝 Additional Notes
+
+- Both `backend` and `frontend` folders include their own `README.md` files with setup and usage instructions.
+- The modular structure improves collaboration, testing, and future feature expansion.
+- Designed with real-world production practices in mind.
+
+---
+
+## 📌 Status
+
+- **Backend**: Complete
+- **Frontend**: Maintenance
