@@ -13,6 +13,7 @@ router.post("/login", login);
 router.post("/logout", logout); //logout is post becouse it changes the state of server
 
 //check i user is aunthaticated or not
+
 router.get("/me", protectRoute, (req, res) => {
   res.status(200).json({ success: true, user: req.user });
 });
