@@ -4,7 +4,8 @@
   "description": "The backend development has been completed, and work is now progressing on the frontend.\r This backend powers the Streamify application and is built using Express.js, Mongoose, and Stream Chat, providing a scalable and reliable foundation for the platform.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npm install --prefix backend && npm install --prefix frontend && npm run build --prefix frontend ",
+    "start": "npm run start --prefix backend"
   },
   "repository": {
     "type": "git",
@@ -12,9 +13,5 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/TheSkyroo/streamify_PVT/issues"
-  },
-  "homepage": "https://github.com/TheSkyroo/streamify_PVT#readme"
+  "license": "ISC"
 }
